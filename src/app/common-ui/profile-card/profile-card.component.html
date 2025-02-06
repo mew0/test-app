@@ -1,25 +1,27 @@
+@if (profile) {
 <div class="profile-card">
   <div class="avatar-name">
-    <img src="/assets/images/img.jpg" alt="avatar" class="profile-card__avatar">
+    <img
+      [src]="profile.avatarUrl | imgUrl"
+      alt="avatar"
+      class="profile-card__avatar">
 
     <div class="profile-card__name">
-      <strong class="h6">Райан Гослинг</strong>
-      <span class="subtitle">ryan.gosling</span>
+      <strong class="h6">{{ profile.firstName }} {{ profile.lastName }}</strong>
+      <span class="subtitle">{{ profile.username }}</span>
     </div>
   </div>
 
-  <div class="profile-card__description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </div>
+  <div class="profile-card__description">{{ profile.description }}</div>
 
   <div class="profile-card__tags">
-    <div class="skill-tag">Angular</div>
-    <div class="skill-tag">HTML</div>
-    <div class="skill-tag">CSS</div>
-    <div class="skill-tag">REST</div>
+    @for (skill of profile.stack; track skill) {
+      <div class="skill-tag">{{ skill }}</div>
+    }
   </div>
 
   <div class="profile-card__action-buttons">
     <button class="btn">Подписаться</button>
   </div>
 </div>
+}

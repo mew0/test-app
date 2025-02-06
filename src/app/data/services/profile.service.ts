@@ -6,8 +6,7 @@ import {Profile} from '../interfaces/profile.interface';
   providedIn: 'root'
 })
 export class ProfileService {
-  http= inject(HttpClient);
-
+  http = inject(HttpClient);
   baseUrl = 'https://icherniakov.ru/yt-course';
 
   getTestAccounts() {
